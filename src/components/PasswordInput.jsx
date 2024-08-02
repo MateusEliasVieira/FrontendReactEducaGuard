@@ -1,23 +1,18 @@
 import axios from "axios";
 import "./Password.css";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 const PasswordInput = (props) => {
     const [pass, setPass] = useState('');
     const [passConfirm, setPassConfirm] = useState('');
-    const [token, setToken] = useState('');
-
-    useEffect(()=>{
-        setToken(props.token)
-    },[])
 
     const handleClick = async () => {
 
         if (pass === passConfirm) {
-            if (token) {
+            if (props.token) {
                 await axios.post("https://educaguard.up.railway.app/api/recover/new-password",
                     JSON.stringify({
-                        token:token,
+                        token:props.token,
                         newpassword:pass
                     })
                 )
