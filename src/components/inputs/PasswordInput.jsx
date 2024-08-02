@@ -48,8 +48,8 @@ const PasswordInput = (props) => {
                             showModal("Aviso","Erro ao recuperar a conta!");
                         }
                     } catch (err) {
-                        console.log("Err "+err.response)
-                        showModal("Aviso",err.response.data);
+                        console.log("Err "+err)
+                        showModal("Aviso",err);
                     }
                 } else {
                     showModal("Aviso","A URL está quebrada!");
